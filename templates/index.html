@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Welcome to my portfolio! Here are some of my projects:</p>
+        <p>I'm a passionate developer focused on creating beautiful and functional web applications.</p>
+    </header>
+    
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm Kasun Harshana, a student with a passion for coding and design. I love building applications that solve real-world problems.</p>
+            <p>Email: <a href="mailto:your_email@example.com">your_email@example.com</a></p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>React</li>
+                <li>SQL</li>
+            </ul>
+        </section>
+
+        <h2>Projects</h2>
+        {% for project in projects %}
+            <div class="project">
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+                <a href="{{ project.url }}" target="_blank">View Project</a>
+            </div>
+        {% endfor %}
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form action="/contact" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" required></textarea><br><br>
+
+                <input type="submit" value="Send">
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; {{ current_year }} My Portfolio | <a href="mailto:your_email@example.com" style="color: white;">Contact Me</a></p>
+    </footer>
+</body>
+</html>
