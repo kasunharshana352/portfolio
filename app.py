@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
@@ -37,4 +38,5 @@ def contact():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Get port from environment
+    app.run(host="0.0.0.0", port=port)  # Bind to 0.0.0.0 for external access
