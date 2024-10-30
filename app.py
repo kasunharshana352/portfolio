@@ -9,7 +9,7 @@ projects = [
     {
         "title": "Project 1",
         "description": "Description of project 1.",
-        "url": "https://example.com/project1"
+        "url": "https://87f575bd-2dfe-425d-8461-78b4d47dc328-00-2wz26cdqtdyw8.picard.replit.dev/"
     },
     {
         "title": "Project 2",
